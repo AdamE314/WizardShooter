@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class enemyNavBasic : MonoBehaviour {
 
-    public float moveSpeed = 0.5f;
+    public float moveSpeed = 8f;
+    public float arcTime = 1f;
+    public float arcHeight = 3f;
+    public float swoopSpeed = 8f;
 
     private GameObject targetNode = null;
     private GameObject myPlayer = null;
+    private string myState = "default";
+    private float myHeight;
+    private float swoopTimer = 0f;
+    private float swoopRange = 6f;
+    private Vector3 swoopDirection = Vector3.forward;
+
+    private int layerId;
+    private int layerMask;
 
 	// Use this for initialization
 	void Start () {
 
-        
+        myHeight = transform.position.y;
 
 	}
 	
@@ -26,19 +37,75 @@ public class enemyNavBasic : MonoBehaviour {
         else
         {
 
-            if (targetNode != null)
-            {
+            switch (myState) {
 
-                var _targpos = targetNode.transform.position;
-                var _movepos = (Vector3.Normalize(_targpos - transform.position)) * moveSpeed;
+                //Default state
+                case "default":
+                    if (targetNode != null)
+                    {
 
-                transform.position += _movepos * Time.deltaTime;
+                        var _targpos = targetNode.transform.position;
+                        _targpos = new Vector3(_targpos.x, transform.position.y, _targpos.z);
+                        var _movepos = (Vector3.Normalize(_targpos - transform.position)) * moveSpeed;
 
-            }
-            else
-            {
+                        //Check for collision with enemies
+                        layerId = 9;
+                        layerMask = 1 << layerId;
 
-                setTarget();
+                        if (!Physics.Raycast(transform.position, _movepos, moveSpeed * Time.deltaTime, layerMask, QueryTriggerInteraction.Collide))
+                        {
+
+                            transform.position += _movepos * Time.deltaTime;
+
+                        }
+                        else {
+
+                            transform.position -= _movepos * Time.deltaTime;
+
+                        }
+
+                        
+
+                        //Enter swoop state
+                        //Get position along horizontal plane closest to player
+                        var _dest = myPlayer.transform.position;
+                        _dest.y = transform.position.y;
+                        if (Vector3.Distance(_dest, transform.position) <= swoopRange){
+                            //Init swoop state
+                            myState = "swoop";
+                            swoopTimer = 0f;
+                            //Destination/Direction
+                            swoopDirection = Vector3.Normalize(_dest - transform.position);
+
+                        }
+
+                    }
+                    else
+                    {
+
+                        setTarget();
+
+                    }
+                    break;
+
+                //Swoop state
+                case "swoop":
+
+                    transform.position += (swoopDirection * moveSpeed) * Time.deltaTime;
+
+                    transform.position = new Vector3(transform.position.x, myHeight - Mathf.Sin(Mathf.PI * (swoopTimer / arcTime)) * arcHeight, transform.position.z);
+
+                    swoopTimer += Time.deltaTime;
+
+                    if (swoopTimer >= arcTime) {
+
+                        myState = "default";
+
+                        setNewTarget();
+
+                    }
+
+                    break;
 
             }
 
@@ -69,8 +136,8 @@ public class enemyNavBasic : MonoBehaviour {
 
     void setNewTarget() {
 
-        int layerId = 8;
-        int layerMask = 1 << layerId;
+        layerId = 8;
+        layerMask = 1 << layerId;
 
         var _myNode = Physics.OverlapSphere(transform.position,1f,layerMask)[0].gameObject;
 
@@ -99,10 +166,16 @@ public class enemyNavBasic : MonoBehaviour {
 
     }
 
+    void playerDistance() {
+
+        
+
+    }
+
     void OnTriggerStay(Collider other)
     {
 
-        if (other.tag == "Node") {
+        if (other.tag == "Node" || other.tag == "Enemy") {
 
             setNewTarget();
 

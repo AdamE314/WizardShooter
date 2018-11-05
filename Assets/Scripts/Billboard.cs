@@ -5,7 +5,12 @@ using UnityEngine;
 public class Billboard : MonoBehaviour
 {
     
-    public GameObject myPlayer;
+    private GameObject myPlayer;
+
+    private void Start()
+    {
+        myPlayer = GameObject.FindGameObjectWithTag("Player");
+    }
 
     void Update()
     {

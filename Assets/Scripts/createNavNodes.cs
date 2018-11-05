@@ -14,7 +14,8 @@ public class createNavNodes : MonoBehaviour {
         {
             for (int j = -4; j < 5; j++)
             {
-                Instantiate(Node,transform.position+(new Vector3(i*distance,0.0f,j*distance)),Quaternion.identity);
+                var _mynode = Instantiate(Node,transform.position+(new Vector3(i*distance,0.0f,j*distance)),Quaternion.identity);
+                _mynode.parent = transform;
             }
         }
     }

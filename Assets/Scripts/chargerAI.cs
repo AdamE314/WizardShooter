@@ -2,33 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class enemyNavBasic : MonoBehaviour {
+public class chargerAI : MonoBehaviour
+{
 
     public float moveSpeed = 8f;
-    public float arcTime = 1f;
-    public float arcHeight = 3f;
-    public float swoopSpeed = 8f;
 
     private GameObject targetNode = null;
     private GameObject myPlayer = null;
     private string myState = "default";
-    private float myHeight;
-    private float swoopTimer = 0f;
-    private float swoopRange = 6f;
-    private Vector3 swoopDirection = Vector3.forward;
+
+    //Charging
+    public float chargeRange = 10f;
+    public float windupDelay = 3f;
+    public float chargeSpeed = 14f;
 
     private int layerId;
     private int layerMask;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
 
-        myHeight = transform.position.y;
+    }
 
-	}
-	
-	// Update is called once per frame
-	void FixedUpdate () {
+    // Update is called once per frame
+    void FixedUpdate()
+    {
 
         if (myPlayer == null)
         {
@@ -37,7 +36,8 @@ public class enemyNavBasic : MonoBehaviour {
         else
         {
 
-            switch (myState) {
+            switch (myState)
+            {
 
                 //Default state
                 case "default":
@@ -58,24 +58,10 @@ public class enemyNavBasic : MonoBehaviour {
                             transform.position += _movepos * Time.deltaTime;
 
                         }
-                        else {
+                        else
+                        {
 
                             transform.position -= _movepos * Time.deltaTime;
-
-                        }
-
-                        
-
-                        //Enter swoop state
-                        //Get position along horizontal plane closest to player
-                        var _dest = myPlayer.transform.position;
-                        _dest.y = transform.position.y;
-                        if (Vector3.Distance(_dest, transform.position) <= swoopRange){
-                            //Init swoop state
-                            myState = "swoop";
-                            swoopTimer = 0f;
-                            //Destination/Direction
-                            swoopDirection = Vector3.Normalize(_dest - transform.position);
 
                         }
 
@@ -88,22 +74,8 @@ public class enemyNavBasic : MonoBehaviour {
                     }
                     break;
 
-                //Swoop state
-                case "swoop":
-
-                    transform.position += (swoopDirection * moveSpeed) * Time.deltaTime;
-
-                    transform.position = new Vector3(transform.position.x, myHeight - Mathf.Sin(Mathf.PI * (swoopTimer / arcTime)) * arcHeight, transform.position.z);
-
-                    swoopTimer += Time.deltaTime;
-
-                    if (swoopTimer >= arcTime) {
-
-                        myState = "default";
-
-                        setNewTarget();
-
-                    }
+                //Windup for charge
+                case "windup":
 
                     break;
 
@@ -111,9 +83,10 @@ public class enemyNavBasic : MonoBehaviour {
 
         }
 
-	}
+    }
 
-    void setTarget() {
+    void setTarget()
+    {
 
         var _allnodes = GameObject.FindGameObjectsWithTag("Node");
         var _distance = -1f;
@@ -134,50 +107,59 @@ public class enemyNavBasic : MonoBehaviour {
 
     }
 
-    void setNewTarget() {
+    void setNewTarget()
+    {
 
         layerId = 8;
         layerMask = 1 << layerId;
 
-        var _myNode = Physics.OverlapSphere(transform.position,1f,layerMask)[0].gameObject;
-
-        var _allnodes = Physics.OverlapSphere(_myNode.transform.position,10f,layerMask);
-        var _distance = Vector3.Distance(_myNode.transform.position,myPlayer.transform.position);
+        var _allnodes = Physics.OverlapSphere(targetNode.transform.position, 10f, layerMask);
+        var _distance = Vector3.Distance(targetNode.transform.position, myPlayer.transform.position);
 
         foreach (Collider _n in _allnodes)
         {
 
             var distance = Vector3.Distance(_n.transform.position, myPlayer.transform.position);
-            if (distance < _distance && _n.gameObject != _myNode)
+            GameObject _node = null;
+            if (distance < _distance && _n.gameObject != targetNode)
             {
 
-                targetNode = _n.gameObject;
+                _node = _n.gameObject;
                 _distance = distance;
 
+            }
+            if (_node != null)
+            {
+                targetNode = _node;
             }
 
         }
 
     }
 
-    void findPlayer() {
+    void findPlayer()
+    {
 
         myPlayer = GameObject.FindGameObjectWithTag("Player");
 
     }
 
-    void playerDistance() {
+    void playerDistance()
+    {
 
-        
+
 
     }
 
     void OnTriggerStay(Collider other)
     {
 
-        if (other.tag == "Node" || other.tag == "Enemy") {
-
-            setNewTarget();
+        if (other.tag == "Node" || other.tag == "Enemy")
+        {
+            if (other.gameObject == targetNode)
+            {
+                setNewTarget();
+            }
 
         }
     }

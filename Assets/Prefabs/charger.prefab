@@ -9,46 +9,48 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1863869917732224}
+  m_RootGameObject: {fileID: 1328576199291896}
   m_IsPrefabAsset: 1
---- !u!1 &1863869917732224
+--- !u!1 &1328576199291896
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4867793173353836}
-  - component: {fileID: 33119700463565414}
-  - component: {fileID: 23856667807799806}
-  - component: {fileID: 135085489473908060}
-  - component: {fileID: 114009143690815620}
+  - component: {fileID: 4400814279110630}
+  - component: {fileID: 33273773519535530}
+  - component: {fileID: 23719221696630974}
+  - component: {fileID: 135167868736260584}
+  - component: {fileID: 114395270856594450}
+  - component: {fileID: 114433210518150322}
+  - component: {fileID: 54800048774173154}
   m_Layer: 0
-  m_Name: projectile
-  m_TagString: Untagged
+  m_Name: charger
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4867793173353836
+--- !u!4 &4400814279110630
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1863869917732224}
+  m_GameObject: {fileID: 1328576199291896}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -24.169865, y: 3.7504783, z: -11.779587}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 2, z: 20}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23856667807799806
+--- !u!23 &23719221696630974
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1863869917732224}
+  m_GameObject: {fileID: 1328576199291896}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -58,7 +60,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 4a03d46ccce3a8444856e99c08097908, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -78,33 +80,62 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33119700463565414
+--- !u!33 &33273773519535530
 MeshFilter:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1863869917732224}
+  m_GameObject: {fileID: 1328576199291896}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &114009143690815620
+--- !u!54 &54800048774173154
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1328576199291896}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &114395270856594450
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1863869917732224}
+  m_GameObject: {fileID: 1328576199291896}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad0e918e33bfa244f8802738e7706d3d, type: 3}
+  m_Script: {fileID: 11500000, guid: ca46b4586853806469a532d2852e040a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSpeed: 10
-  shotTimeMax: 5
-  shotByPlayer: 1
---- !u!135 &135085489473908060
+  myHealth: 5
+--- !u!114 &114433210518150322
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1328576199291896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2527f9b643ac3640b4b4bf76abbf45c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 8
+  chargeRange: 20
+  windupDelay: 1
+  stunDelay: 1
+  chargeSpeed: 20
+--- !u!135 &135167868736260584
 SphereCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1863869917732224}
+  m_GameObject: {fileID: 1328576199291896}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1

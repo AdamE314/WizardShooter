@@ -40,20 +40,23 @@ public class projectileMotion : MonoBehaviour {
                 _mytarg.myHealth--;
                 Destroy(gameObject);
             }
+            if (other.tag == "Boss")
+            {
+                bossAI _mytarg = other.GetComponent<bossAI>();
+                _mytarg.getHit();
+                Destroy(gameObject);
+            }
         } else if (other.tag == "Player") {
             playerHealth _mytarg = other.GetComponent<playerHealth>();
             _mytarg.myHealth -= 5f;
             Destroy(gameObject);
         }
 
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Wall")
+        if (other.tag == "Wall")
         {
-            
+            Destroy(gameObject);
         }
+
     }
 
 }

@@ -12,9 +12,12 @@ public class chargerAI : MonoBehaviour
     private string myState = "default";
 
     //Charging
-    public float chargeRange = 10f;
-    public float windupDelay = 3f;
-    public float chargeSpeed = 14f;
+    public float chargeRange = 20f;
+    public float windupDelay = 2f;
+    public float stunDelay = 2f;
+    public float chargeSpeed = 18f;
+    private float myTimer = 0f;
+    private Vector3 chargeDirection = Vector3.zero;
 
     private int layerId;
     private int layerMask;
@@ -65,6 +68,13 @@ public class chargerAI : MonoBehaviour
 
                         }
 
+                        //Enter attacking states
+                        if (Vector3.Distance(transform.position, myPlayer.transform.position) < chargeRange)
+                        {
+                            myState = "windup";
+                            myTimer = 0f;
+                        }
+
                     }
                     else
                     {
@@ -76,9 +86,43 @@ public class chargerAI : MonoBehaviour
 
                 //Windup for charge
                 case "windup":
-
+                    myTimer += Time.deltaTime;
+                    chargeDirection = myPlayer.transform.position-transform.position;
+                    if (myTimer >= windupDelay)
+                    {
+                        chargeDirection = Vector3.Normalize(new Vector3(chargeDirection.x,0f,chargeDirection.z));
+                        myState = "charging";
+                    }
                     break;
 
+                case "charging":
+                    //Check for collision with walls
+                    layerId = 10;
+                    layerMask = 1 << layerId;
+
+                    var _mpos = chargeDirection * chargeSpeed;
+
+                    if (!Physics.Raycast(transform.position, _mpos, chargeSpeed * Time.deltaTime, layerMask, QueryTriggerInteraction.Collide))
+                    {
+
+                        transform.position += _mpos * Time.deltaTime;
+
+                    }
+                    else
+                    {
+                        myState = "stunned";
+                        myTimer = 0f;
+                    }
+                    break;
+
+                case "stunned":
+                    myTimer += Time.deltaTime;
+                    if (myTimer >= stunDelay)
+                    {
+                        myState = "default";
+                        setTarget();
+                    }
+                    break;
             }
 
         }

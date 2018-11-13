@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class playerHealth : MonoBehaviour {
 
-    public float myHealth = 100f;
+    public int myHealth = 3;
 
 	// Use this for initialization
 	void Start () {

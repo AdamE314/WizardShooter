@@ -53,12 +53,18 @@ public class bossAI : MonoBehaviour {
                 burstTimer += Time.deltaTime;
                 if (burstTimer >= burstDelay)
                 {
+
+                    if (burstTimer >= burstDelay + (shotDelay / 2f))
+                    {
+                        anim.SetBool("Attacking", true);
+                    }
+
                     if (shotCounter < shotCount)
                     {
                         shotTimer += Time.deltaTime;
                         if (shotTimer >= shotDelay)
                         {
-                            shootBurst(spreadCount,spreadAngle);
+                            shootBurst(spreadCount, spreadAngle);
                             shotTimer = 0f;
                             shotCounter++;
                         }
@@ -69,6 +75,10 @@ public class bossAI : MonoBehaviour {
                         burstTimer = 0f;
                         shotCounter = 0;
                     }
+                }
+                else
+                {
+                    anim.SetBool("Attacking", false);
                 }
                 transform.position = new Vector3(transform.position.x,invulnHeight,transform.position.z);
 
@@ -82,6 +92,8 @@ public class bossAI : MonoBehaviour {
                 break;
 
             case "vulnerable":
+
+                anim.SetBool("Attacking", false);
 
                 spawner.canSpawn = true;
 
@@ -109,7 +121,6 @@ public class bossAI : MonoBehaviour {
         {
             float _bdir = angle*Mathf.Ceil(i/2)*Mathf.Pow(-1f,i);
             shootBullet(Vector3.Normalize(myPlayer.transform.position - transform.position), _bdir);
-            //anim.SetTrigger("enterAttack");
         }
     }
 

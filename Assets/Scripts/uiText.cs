@@ -8,7 +8,7 @@ public class uiText : MonoBehaviour
 {
 
 
-    public float hp;
+    public int hp;
 
     public int enemiesLeft;
 

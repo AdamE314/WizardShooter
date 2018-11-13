@@ -48,7 +48,7 @@ public class projectileMotion : MonoBehaviour {
             }
         } else if (other.tag == "Player") {
             playerHealth _mytarg = other.GetComponent<playerHealth>();
-            _mytarg.myHealth -= 5f;
+            _mytarg.myHealth -= 1;
             Destroy(gameObject);
         }
 

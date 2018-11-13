@@ -34,9 +34,13 @@ public class bossAI : MonoBehaviour {
     private float vulnTimer = 0f;
     private bool isHit = false;
 
+    //Spawning reference
+    private bossSpawner spawner;
+
     // Use this for initialization
     void Start () {
         myPlayer = GameObject.FindGameObjectWithTag("Player");
+        spawner = GetComponent<bossSpawner>();
 	}
 	
 	// Update is called once per frame
@@ -68,7 +72,7 @@ public class bossAI : MonoBehaviour {
                 }
                 transform.position = new Vector3(transform.position.x,invulnHeight,transform.position.z);
 
-                if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
+                if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0 && !spawner.canSpawn)
                 {
                     myState = "vulnerable";
                     vulnTimer = 0f;
@@ -78,6 +82,8 @@ public class bossAI : MonoBehaviour {
                 break;
 
             case "vulnerable":
+
+                spawner.canSpawn = true;
 
                 vulnTimer += Time.deltaTime;
 

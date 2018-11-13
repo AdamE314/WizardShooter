@@ -8,11 +8,11 @@ public class batAI : MonoBehaviour {
     public float arcTime = 1f;
     public float arcHeight = 3f;
     public float swoopSpeed = 8f;
+    public float myHeight = 5f;
 
     private GameObject targetNode = null;
     private GameObject myPlayer = null;
     private string myState = "default";
-    private float myHeight;
     private float swoopTimer = 0f;
     private float swoopRange = 6f;
     private Vector3 swoopDirection = Vector3.forward;
@@ -23,7 +23,7 @@ public class batAI : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-        myHeight = transform.position.y;
+        transform.position = new Vector3(transform.position.x,myHeight,transform.position.z);
 
 	}
 	
@@ -139,8 +139,19 @@ public class batAI : MonoBehaviour {
         layerId = 8;
         layerMask = 1 << layerId;
 
-        var _allnodes = Physics.OverlapSphere(targetNode.transform.position,10f,layerMask);
-        var _distance = Vector3.Distance(targetNode.transform.position,myPlayer.transform.position);
+        Collider[] _allnodes;
+        float _distance;
+
+        if (targetNode != null)
+        {
+            _allnodes = Physics.OverlapSphere(targetNode.transform.position, 10f, layerMask);
+            _distance = Vector3.Distance(targetNode.transform.position, myPlayer.transform.position);
+        }
+        else
+        {
+            _allnodes = Physics.OverlapSphere(transform.position, 10f, layerMask);
+            _distance = Vector3.Distance(transform.position, myPlayer.transform.position);
+        }
 
         foreach (Collider _n in _allnodes)
         {

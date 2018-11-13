@@ -190,6 +190,7 @@ MonoBehaviour:
   arcTime: 1
   arcHeight: 3
   swoopSpeed: 8
+  myHeight: 5
 --- !u!135 &135776240257172652
 SphereCollider:
   m_ObjectHideFlags: 1

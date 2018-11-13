@@ -34,9 +34,13 @@ public class bossAI : MonoBehaviour {
     private float vulnTimer = 0f;
     private bool isHit = false;
 
+    //Spawning reference
+    private bossSpawner spawner;
+
     // Use this for initialization
     void Start () {
         myPlayer = GameObject.FindGameObjectWithTag("Player");
+        spawner = GetComponent<bossSpawner>();
 	}
 	
 	// Update is called once per frame
@@ -49,12 +53,18 @@ public class bossAI : MonoBehaviour {
                 burstTimer += Time.deltaTime;
                 if (burstTimer >= burstDelay)
                 {
+
+                    if (burstTimer >= burstDelay + (shotDelay / 2f))
+                    {
+                        anim.SetBool("Attacking", true);
+                    }
+
                     if (shotCounter < shotCount)
                     {
                         shotTimer += Time.deltaTime;
                         if (shotTimer >= shotDelay)
                         {
-                            shootBurst(spreadCount,spreadAngle);
+                            shootBurst(spreadCount, spreadAngle);
                             shotTimer = 0f;
                             shotCounter++;
                         }
@@ -66,9 +76,13 @@ public class bossAI : MonoBehaviour {
                         shotCounter = 0;
                     }
                 }
+                else
+                {
+                    anim.SetBool("Attacking", false);
+                }
                 transform.position = new Vector3(transform.position.x,invulnHeight,transform.position.z);
 
-                if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
+                if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0 && !spawner.canSpawn)
                 {
                     myState = "vulnerable";
                     vulnTimer = 0f;
@@ -78,6 +92,10 @@ public class bossAI : MonoBehaviour {
                 break;
 
             case "vulnerable":
+
+                anim.SetBool("Attacking", false);
+
+                spawner.canSpawn = true;
 
                 vulnTimer += Time.deltaTime;
 
@@ -103,7 +121,6 @@ public class bossAI : MonoBehaviour {
         {
             float _bdir = angle*Mathf.Ceil(i/2)*Mathf.Pow(-1f,i);
             shootBullet(Vector3.Normalize(myPlayer.transform.position - transform.position), _bdir);
-            //anim.SetTrigger("enterAttack");
         }
     }
 

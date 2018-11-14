@@ -55,7 +55,7 @@ public class uiText : MonoBehaviour
         wavesLeft = bosshp.myHealth;
         hpText.text = "Health: " + hp;
         enemiesLeftText.text = "Enemies Remaining: " + enemiesLeft;
-        wavesLeftText.text = "Waves Reamining: " + wavesLeft;
+        wavesLeftText.text = "Waves Remaining: " + wavesLeft;
     }
 
 }

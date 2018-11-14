@@ -15,6 +15,7 @@ public class playerController : MonoBehaviour {
 
     //Shoot
     public GameObject myProjectile;
+    public float projSpeed = 250f;
     private float shotCooldown = 0.2f;
     private float shotTimer = 0f;
 
@@ -65,6 +66,6 @@ public class playerController : MonoBehaviour {
         Vector3 _offset = new Vector3(0f, 1f, 0f) + direction * 2f;
         projectileMotion _proj = Instantiate(myProjectile, transform.position + _offset, myCamera.transform.rotation).GetComponent<projectileMotion>();
         _proj.transform.RotateAround(_proj.transform.position, Vector3.up, dirOffset);
-        _proj.projectileSpeed = 50f;
+        _proj.projectileSpeed = projSpeed;
     }
 }

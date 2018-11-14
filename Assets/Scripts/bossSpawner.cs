@@ -15,6 +15,7 @@ public class bossSpawner : MonoBehaviour {
     float spawnTimer;
 
     //Enemies
+    enum enm {bat, charger};
     public GameObject bat;
     public GameObject charger;
     public float arenaRadius;

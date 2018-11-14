@@ -218,7 +218,7 @@ MonoBehaviour:
   bat: {fileID: 1206202354176192, guid: 60d32a5a81678344883df2fb7ea22214, type: 2}
   charger: {fileID: 1328576199291896, guid: 22771508d6084fe40b6b7e8df49c4e98, type: 2}
   arenaRadius: 45
-  arenaCenter: {x: 0, y: 2, z: 0}
+  arenaCenter: {x: 0, y: 3.2, z: 0}
 --- !u!114 &114857743919624666
 MonoBehaviour:
   m_ObjectHideFlags: 1

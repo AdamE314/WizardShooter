@@ -205,6 +205,7 @@ MonoBehaviour:
   lookSpeed: 6
   myProjectile: {fileID: 1863869917732224, guid: 549277f06e0208b42b58c8f88b0ff6a4,
     type: 2}
+  projSpeed: 150
 --- !u!114 &114810124765720606
 MonoBehaviour:
   m_ObjectHideFlags: 1

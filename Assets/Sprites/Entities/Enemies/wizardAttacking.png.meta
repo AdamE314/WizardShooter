@@ -90,13 +90,13 @@ TextureImporter:
       name: wizardAttacking_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 954
-        height: 1143
+        x: 157
+        y: 120
+        width: 643
+        height: 876
       alignment: 9
       pivot: {x: 0.50529104, y: 0.42345405}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 0, y: 0, z: 0, w: 3}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -110,13 +110,13 @@ TextureImporter:
       name: wizardAttacking_1
       rect:
         serializedVersion: 2
-        x: 954
-        y: 0
-        width: 760
-        height: 1143
+        x: 1019
+        y: 115
+        width: 643
+        height: 883
       alignment: 9
       pivot: {x: 0.5044278, y: 0.42050996}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 0, y: 3, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -131,9 +131,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1885
-        y: 0
+        y: 120
         width: 668
-        height: 1143
+        height: 873
       alignment: 9
       pivot: {x: 0.4974811, y: 0.42050996}
       border: {x: 0, y: 0, z: 0, w: 0}

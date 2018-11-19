@@ -258,6 +258,26 @@ Prefab:
       propertyPath: swordAnim
       value: 
       objectReference: {fileID: 1840467651}
+    - target: {fileID: 20889267949363292, guid: 855a65e60bb170142b24200dcd41be7e,
+        type: 2}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 20889267949363292, guid: 855a65e60bb170142b24200dcd41be7e,
+        type: 2}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20889267949363292, guid: 855a65e60bb170142b24200dcd41be7e,
+        type: 2}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20889267949363292, guid: 855a65e60bb170142b24200dcd41be7e,
+        type: 2}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 855a65e60bb170142b24200dcd41be7e, type: 2}
   m_IsPrefabAsset: 0
@@ -1960,14 +1980,6 @@ Prefab:
     - target: {fileID: 4320308772656212, guid: 34da445a6bb72834c9448c10b52c14b7, type: 2}
       propertyPath: m_RootOrder
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4004838583250830, guid: 34da445a6bb72834c9448c10b52c14b7, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 4004838583250830, guid: 34da445a6bb72834c9448c10b52c14b7, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34da445a6bb72834c9448c10b52c14b7, type: 2}

@@ -18,11 +18,12 @@ public class bossSpawner : MonoBehaviour {
     public int bossId = 0;
 
     //Enemies
-    enum enm {bat, charger};
-    int enmLength = 2;
+    enum enm {bat, charger, mage};
+    int enmLength = 3;
     int waveNum = 0;
     public GameObject bat;
     public GameObject charger;
+    public GameObject mage;
     GameObject[] enmTypes;
     public float arenaRadius;
     public Vector3 arenaCenter;
@@ -33,7 +34,7 @@ public class bossSpawner : MonoBehaviour {
         enmNum = 1;
         spawnTimer = spawnDelay;
         enemySpawns = setEnemySpawns(bossId,myAI);
-        enmTypes = new[] {bat, charger};
+        enmTypes = new[] {bat, charger, mage};
     }
 	
 	// Update is called once per frame
@@ -47,7 +48,7 @@ public class bossSpawner : MonoBehaviour {
 
             if (spawnTimer <= 0)
             {
-                if (myAI.myHealth <= 0)
+                if (myAI.myHealth < 0)
                 {
                     Destroy(gameObject);
                 }
@@ -92,18 +93,43 @@ public class bossSpawner : MonoBehaviour {
                 //Round 1
                 _enms[0, (int) enm.bat] = 5;
                 _enms[0, (int) enm.charger] = 0;
+                _enms[0, (int) enm.mage] = 0;
                 //Round 2
                 _enms[1, (int)enm.bat] = 8;
                 _enms[1, (int)enm.charger] = 0;
+                _enms[1, (int)enm.mage] = 0;
                 //Round 3
                 _enms[2, (int)enm.bat] = 8;
                 _enms[2, (int)enm.charger] = 1;
+                _enms[2, (int)enm.mage] = 0;
                 //Round 4
                 _enms[3, (int)enm.bat] = 10;
                 _enms[3, (int)enm.charger] = 3;
+                _enms[3, (int)enm.mage] = 0;
                 //Round 5
                 _enms[4, (int)enm.bat] = 15;
                 _enms[4, (int)enm.charger] = 5;
+                _enms[4, (int)enm.mage] = 0;
+                //Round 6
+                _enms[5, (int)enm.bat] = 15;
+                _enms[5, (int)enm.charger] = 3;
+                _enms[5, (int)enm.mage] = 1;
+                //Round 7
+                _enms[6, (int)enm.bat] = 15;
+                _enms[6, (int)enm.charger] = 5;
+                _enms[6, (int)enm.mage] = 3;
+                //Round 8
+                _enms[7, (int)enm.bat] = 5;
+                _enms[7, (int)enm.charger] = 10;
+                _enms[7, (int)enm.mage] = 10;
+                //Round 9
+                _enms[8, (int)enm.bat] = 10;
+                _enms[8, (int)enm.charger] = 10;
+                _enms[8, (int)enm.mage] = 10;
+                //Round 10
+                _enms[9, (int)enm.bat] = 15;
+                _enms[9, (int)enm.charger] = 10;
+                _enms[9, (int)enm.mage] = 10;
                 break;
         }
 

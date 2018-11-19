@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileSpeed: 10
-  shotTimeMax: 5
+  shotTimeMax: 2
   shotByPlayer: 1
 --- !u!135 &135085489473908060
 SphereCollider:

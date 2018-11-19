@@ -28,7 +28,7 @@ public class meleeAction : MonoBehaviour {
         if (other.tag == "Enemy")
         {
             enemyHealth _mytarg = other.GetComponent<enemyHealth>();
-            _mytarg.myHealth -= 2;
+            _mytarg.myHealth -= 3;
         }
         if (other.tag == "Boss")
         {

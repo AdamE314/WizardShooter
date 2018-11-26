@@ -187,7 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2527f9b643ac3640b4b4bf76abbf45c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 8
+  moveSpeed: 10
   chargeRange: 20
   windupDelay: 1
   stunDelay: 1

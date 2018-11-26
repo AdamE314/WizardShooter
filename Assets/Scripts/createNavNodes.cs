@@ -5,17 +5,25 @@ using UnityEngine;
 public class createNavNodes : MonoBehaviour {
 
     public Transform Node;
+    private int angleDist = 40;
+    private int layerDist = 7;
 
     private float distance = 8;
 
 	// Use this for initialization
 	void Start () {
-        for (int i = -4; i < 5; i++)
+        for (int i = 0;i < angleDist; i++)
         {
-            for (int j = -4; j < 5; j++)
+            var angle = i * (360 / angleDist);
+            var v3Dir = new Vector3(Mathf.Sin(Mathf.Deg2Rad * angle), 0, Mathf.Cos(Mathf.Deg2Rad * angle));
+            for (int j = 0; j < layerDist; j++)
             {
-                var _mynode = Instantiate(Node,transform.position+(new Vector3(i*distance,0.0f,j*distance)),Quaternion.identity);
-                _mynode.parent = transform;
+                if (j > layerDist / 2 || i % 2 == 0)
+                {
+                    var _dist = v3Dir * (j * distance);
+                    var _mynode = Instantiate(Node, transform.position + _dist, Quaternion.identity);
+                    _mynode.parent = transform;
+                }
             }
         }
     }

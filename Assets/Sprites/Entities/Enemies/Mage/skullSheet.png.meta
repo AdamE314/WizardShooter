@@ -1,10 +1,12 @@
 fileFormatVersion: 2
-guid: 3e6231d54fdb0234391c3d90fd90d365
+guid: f8ca0bcb4ead43b42a50c191a21d3316
 TextureImporter:
   fileIDToRecycleName:
-    21300000: wizardAttacking_0
-    21300002: wizardAttacking_1
-    21300004: wizardAttacking_2
+    21300000: skullSheet_0
+    21300002: skullSheet_1
+    21300004: skullSheet_2
+    21300006: skullSheet_3
+    21300008: skullSheet_4
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -50,7 +52,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -87,61 +89,101 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: wizardAttacking_0
+      name: skullSheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 954
-        height: 1143
+        width: 213.8
+        height: 240
       alignment: 9
-      pivot: {x: 0.50529104, y: 0.42345405}
+      pivot: {x: 0.58818334, y: 0.34812367}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e44b5ffd8072bf46980018c7ce5e2aa
+      spriteID: faf18dfda887ae54f8ce250b3f4cfb81
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: wizardAttacking_1
+      name: skullSheet_1
       rect:
         serializedVersion: 2
-        x: 954
+        x: 213
         y: 0
-        width: 760
-        height: 1143
+        width: 213.8
+        height: 240
       alignment: 9
-      pivot: {x: 0.5044278, y: 0.42050996}
+      pivot: {x: 0.5176365, y: 0.33241233}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a8397ebc2f5c119469a0f84df3516168
+      spriteID: 177fc55ff5374f648bf2857d43b47478
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: wizardAttacking_2
+      name: skullSheet_2
       rect:
         serializedVersion: 2
-        x: 1885
+        x: 426
         y: 0
-        width: 668
-        height: 1143
+        width: 213.8
+        height: 240
       alignment: 9
-      pivot: {x: 0.4974811, y: 0.42050996}
+      pivot: {x: 0.49706027, y: 0.35074225}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6de81b0e4fcb90843be504a087bc663f
+      spriteID: a77428965e3f1cc45a9aee27c5b26105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skullSheet_3
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 0
+        width: 213.8
+        height: 240
+      alignment: 9
+      pivot: {x: 0.5911218, y: 0.33764943}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28271a009fea7c9478de7f1ae0aaa764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skullSheet_4
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 0
+        width: 213.8
+        height: 240
+      alignment: 9
+      pivot: {x: 0.42651325, y: 0.34026802}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ab09108abb3b524685bcd16572149a1
       vertices: []
       indices: 
       edges: []
@@ -149,7 +191,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 3db21947844cea84eb8938b03295c7da
+    spriteID: 6493d24a9501a1e4599b42b6f198d6cc
     vertices: []
     indices: 
     edges: []

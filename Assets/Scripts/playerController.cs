@@ -19,6 +19,16 @@ public class playerController : MonoBehaviour {
     private float shotCooldown = 0.2f;
     private float shotTimer = 0f;
 
+    //Melee
+    public GameObject myMelee;
+    public float myMeleeDuration = 0.25f;
+    public float myMeleeCooldown = 0.5f;
+    private float myMeleeTimer = 0f;
+
+    //Animation
+    //public Canvas myCanvas;
+    public Animator swordAnim;
+
     //Pre-initialization
     void Awake() {
         Cursor.lockState = CursorLockMode.Locked;
@@ -26,7 +36,8 @@ public class playerController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        
+        swordAnim.transform.SetParent(myCamera.transform);
+        //swordAnim.SetBool("Attacking", true);
 	}
 
     void Update()
@@ -41,10 +52,26 @@ public class playerController : MonoBehaviour {
 
         //Shooting
         shotTimer -= Time.deltaTime;
-        if (shotTimer <= 0 && Input.GetButton("Fire1"))
+        if (myMeleeTimer >= myMeleeCooldown && shotTimer <= 0 && Input.GetButton("Fire1"))
         {
             shotTimer = shotCooldown;
             spawnBullet(myCamera.transform.forward, 0.0f);
+        }
+
+        myMeleeTimer += Time.deltaTime;
+        if (myMeleeTimer >= myMeleeCooldown && Input.GetButtonDown("Fire2"))
+        {
+            myMeleeTimer = 0f;
+            spawnMelee(myCamera.transform.forward);
+            //swordAnim.SetBool("Attacking", true);
+            swordAnim.Play("swordSwing");
+            
+        }
+
+        if (myMeleeTimer >= myMeleeDuration)
+        {
+            //swordAnim.SetBool("Attacking", true);
+            Debug.Log(swordAnim.GetBool("Attacking"));
         }
 
     }
@@ -67,5 +94,13 @@ public class playerController : MonoBehaviour {
         projectileMotion _proj = Instantiate(myProjectile, transform.position + _offset, myCamera.transform.rotation).GetComponent<projectileMotion>();
         _proj.transform.RotateAround(_proj.transform.position, Vector3.up, dirOffset);
         _proj.projectileSpeed = projSpeed;
+    }
+
+    void spawnMelee(Vector3 direction)
+    {
+        Vector3 _offset = new Vector3(0f, 1f, 0f) + direction * 3f;
+        meleeAction _melee = Instantiate(myMelee, transform.position + _offset, myCamera.transform.rotation).GetComponent<meleeAction>();
+        _melee.despawnTimer = myMeleeDuration;
+        _melee.gameObject.transform.parent = myCamera.transform;
     }
 }

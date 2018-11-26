@@ -8,9 +8,9 @@ public class bossAI : MonoBehaviour {
     public Animator anim;
 
     //States
-    public string myState = "default";
+    public string myState = "vulnerable";
     //Stats
-    public int myHealth = 5;
+    public int myHealth = 10;
     private GameObject myPlayer;
     //Shooting
     public GameObject myProjectile;
@@ -20,6 +20,7 @@ public class bossAI : MonoBehaviour {
     public int spreadCount = 3;
     public float spreadAngle = 15f;
     //Invulnerable
+    public GameObject myShield;
     private float invulnHeight = 5f;
     //Vulnerable
     public float vulnWindow = 15f;
@@ -84,6 +85,7 @@ public class bossAI : MonoBehaviour {
 
                 if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0 && !spawner.canSpawn)
                 {
+                    myShield.GetComponent<MeshRenderer>().enabled = false;
                     myState = "vulnerable";
                     vulnTimer = 0f;
                     isHit = false;
@@ -103,8 +105,10 @@ public class bossAI : MonoBehaviour {
                 {
                     if (isHit)
                     {
+                        myShield.GetComponent<MeshRenderer>().enabled = true;
                         myState = "default";
                         myHealth--;
+                        burstTimer = 0f;
                         Debug.Log("Oof owwie ouch");
                     }
                 }

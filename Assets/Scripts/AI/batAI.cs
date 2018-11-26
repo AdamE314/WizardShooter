@@ -158,11 +158,16 @@ public class batAI : MonoBehaviour {
 
             var distance = Vector3.Distance(_n.transform.position, myPlayer.transform.position);
             GameObject _node = null;
-            if (distance < _distance && _n.gameObject != targetNode)
+            float _rand = Random.value;
+            if ((distance < _distance || _rand < 0.1) && _n.gameObject != targetNode)
             {
 
                 _node = _n.gameObject;
                 _distance = distance;
+                if (_rand < 0.1)
+                {
+                    _distance = 0f;
+                }
 
             }
             if (_node != null)

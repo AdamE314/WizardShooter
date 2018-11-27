@@ -849,7 +849,7 @@ GameObject:
   - component: {fileID: 589752364}
   m_Layer: 10
   m_Name: arena
-  m_TagString: Wall
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1980,6 +1980,11 @@ Prefab:
     - target: {fileID: 4320308772656212, guid: 34da445a6bb72834c9448c10b52c14b7, type: 2}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114485738393619186, guid: 34da445a6bb72834c9448c10b52c14b7,
+        type: 2}
+      propertyPath: myHealth
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34da445a6bb72834c9448c10b52c14b7, type: 2}

@@ -50,20 +50,28 @@ public class bossSpawner : MonoBehaviour {
             {
                 if (myAI.myHealth < 0)
                 {
-                    Destroy(gameObject);
+                    //Destroy(gameObject);
                 }
                 else
                 {
+                    //Layer mask to check for player
+                    int layerId = 11;
+                    int layerMask = 1 << layerId;
                     GameObject _enm;
+                    Vector3 enmSpawn;
                     for (int i = 0; i < enmLength; i++)
                     {
                         _enm = enmTypes[i];
                         for (int j = 0; j < enemySpawns[waveNum, i]; j++)
                         {
-                            Vector3 _temp = new Vector3(UnityEngine.Random.value - 0.5f, 0f, UnityEngine.Random.value - 0.5f).normalized;
-                            Vector3 spawnOffset = _temp * (UnityEngine.Random.value * arenaRadius);
+                            do
+                            {
+                                Vector3 _temp = new Vector3(UnityEngine.Random.value - 0.5f, 0f, UnityEngine.Random.value - 0.5f).normalized;
+                                Vector3 spawnOffset = _temp * (UnityEngine.Random.value * arenaRadius);
 
-                            Vector3 enmSpawn = arenaCenter + spawnOffset;
+                                enmSpawn = arenaCenter + spawnOffset;
+                            } while (Physics.OverlapSphere(enmSpawn, 20f, layerMask).Length > 0);
+
 
                             Instantiate(_enm, enmSpawn, Quaternion.identity);
                         }
@@ -95,7 +103,7 @@ public class bossSpawner : MonoBehaviour {
                 _enms[0, (int) enm.charger] = 0;
                 _enms[0, (int) enm.mage] = 0;
                 //Round 2
-                _enms[1, (int)enm.bat] = 8;
+                /*_enms[1, (int)enm.bat] = 8;
                 _enms[1, (int)enm.charger] = 0;
                 _enms[1, (int)enm.mage] = 0;
                 //Round 3
@@ -129,7 +137,7 @@ public class bossSpawner : MonoBehaviour {
                 //Round 10
                 _enms[9, (int)enm.bat] = 15;
                 _enms[9, (int)enm.charger] = 10;
-                _enms[9, (int)enm.mage] = 10;
+                _enms[9, (int)enm.mage] = 10;*/
                 break;
         }
 

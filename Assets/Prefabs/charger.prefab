@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 114433210518150322}
   - component: {fileID: 114691331982338612}
   - component: {fileID: 54800048774173154}
+  - component: {fileID: 114149858016776916}
   m_Layer: 0
   m_Name: charger
   m_TagString: Enemy
@@ -43,7 +44,6 @@ GameObject:
   - component: {fileID: 4041198211269600}
   - component: {fileID: 212060198418070402}
   - component: {fileID: 95760923679067146}
-  - component: {fileID: 114014401329277412}
   m_Layer: 0
   m_Name: chargersprite
   m_TagString: Untagged
@@ -58,7 +58,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1844282728592796}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.5}
   m_LocalScale: {x: 1.3012756, y: 1.3012756, z: 1.3012756}
   m_Children: []
   m_Father: {fileID: 4400814279110630}
@@ -153,12 +153,12 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114014401329277412
+--- !u!114 &114149858016776916
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1844282728592796}
+  m_GameObject: {fileID: 1328576199291896}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc127ee9c8b383448bb2241d8a576b7f, type: 3}

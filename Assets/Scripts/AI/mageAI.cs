@@ -135,7 +135,6 @@ public class mageAI : MonoBehaviour {
             
             GameObject _node = null;
             bool test = (Mathf.Sign(distance - _distance) != Mathf.Sign(_pDist - idealDist));
-            Debug.Log(test);
             if (test && _n.gameObject != targetNode)
             {
 

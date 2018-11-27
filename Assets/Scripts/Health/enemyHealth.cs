@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class enemyHealth : MonoBehaviour {
 
+    public GameObject deadPrefab;
+
     public float myHealth = 1f;
 
 	// Use this for initialization
@@ -17,6 +19,7 @@ public class enemyHealth : MonoBehaviour {
         //Death
         if (myHealth <= 0)
         {
+            Instantiate(deadPrefab,transform.position,transform.rotation);
             Destroy(gameObject);
         }
 

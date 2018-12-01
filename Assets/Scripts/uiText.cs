@@ -14,11 +14,15 @@ public class uiText : MonoBehaviour
 
     public int wavesLeft;
 
+    public float timeTaken;
+
     public Text hpText;
 
     public Text enemiesLeftText;
 
     public Text wavesLeftText;
+
+    public Text timerText;
 
     GameObject player;
     GameObject[] enemyList;
@@ -28,10 +32,8 @@ public class uiText : MonoBehaviour
 
 
     void Start()
-    {
-
+    { 
         enemyList = GameObject.FindGameObjectsWithTag("Enemy");
-
         enemiesLeft = enemyList.Length;
         player = GameObject.FindGameObjectWithTag("Player");
         playerhp = player.GetComponent<playerHealth>();
@@ -39,23 +41,25 @@ public class uiText : MonoBehaviour
         bosshp = boss.GetComponent<bossAI>();
         wavesLeft = bosshp.myHealth;
         hp = playerhp.myHealth;
+       // timeTaken = Time.timeSinceLevelLoad;
         hpText.text = "Health: " + hp;
         enemiesLeftText.text = "Enemies Remaining: " + enemiesLeft;
         wavesLeftText.text = "Waves Remaining: " + wavesLeft;
+       // timerText.text = "Time: " + timeTaken;
     }
 
 
     void Update()
     {
-
+      //  timeTaken = Time.timeSinceLevelLoad;
         enemyList = GameObject.FindGameObjectsWithTag("Enemy");
-
         enemiesLeft = enemyList.Length;
         hp = playerhp.myHealth;
         wavesLeft = bosshp.myHealth;
         hpText.text = "Health: " + hp;
         enemiesLeftText.text = "Enemies Remaining: " + enemiesLeft;
         wavesLeftText.text = "Waves Remaining: " + wavesLeft;
+       // timerText.text = "Time: "+ timeTaken;
     }
 
 }

@@ -105,11 +105,21 @@ public class bossAI : MonoBehaviour {
                 {
                     if (isHit)
                     {
-                        myShield.GetComponent<MeshRenderer>().enabled = true;
-                        myState = "default";
                         myHealth--;
-                        burstTimer = 0f;
-                        Debug.Log("Oof owwie ouch");
+                        if (myHealth <= 0)
+                        {
+                            if (!anim.GetBool("Dead"))
+                            {
+                                anim.SetBool("Dead", true);
+                                anim.Play("bossDying");
+                            }
+                        }
+                        else
+                        {
+                            myShield.GetComponent<MeshRenderer>().enabled = true;
+                            myState = "default";
+                            burstTimer = 0f;
+                        }
                     }
                 }
 
@@ -138,8 +148,11 @@ public class bossAI : MonoBehaviour {
 
     public void getHit()
     {
-        if(myState == "vulnerable")
+        if (myState == "vulnerable")
         {
+            if (vulnTimer <= vulnWindow) {
+                anim.Play("bossHurt");
+            }
             isHit = true;
         }
     }

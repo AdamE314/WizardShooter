@@ -135,7 +135,6 @@ public class mageAI : MonoBehaviour {
             
             GameObject _node = null;
             bool test = (Mathf.Sign(distance - _distance) != Mathf.Sign(_pDist - idealDist));
-            Debug.Log(test);
             if (test && _n.gameObject != targetNode)
             {
 
@@ -168,7 +167,7 @@ public class mageAI : MonoBehaviour {
     void shootBullet(Vector3 direction)
     {
         Vector3 _offset = new Vector3(0f, 1f, 0f) + direction * 2f;
-        projectileMotion _proj = Instantiate(myProjectile, transform.position + _offset, Quaternion.LookRotation(direction)).GetComponent<projectileMotion>();
+        projectileMotion _proj = Instantiate(myProjectile, transform.position + _offset-new Vector3(0f,1f,0f), Quaternion.LookRotation(direction)).GetComponent<projectileMotion>();
         _proj.transform.LookAt(new Vector3(myPlayer.transform.position.x,_proj.gameObject.transform.position.y,myPlayer.transform.position.z));
         _proj.projectileSpeed = 30f;
         _proj.shotByPlayer = false;

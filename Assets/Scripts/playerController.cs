@@ -71,7 +71,7 @@ public class playerController : MonoBehaviour {
         if (myMeleeTimer >= myMeleeDuration)
         {
             //swordAnim.SetBool("Attacking", true);
-            Debug.Log(swordAnim.GetBool("Attacking"));
+            
         }
 
     }
@@ -94,6 +94,7 @@ public class playerController : MonoBehaviour {
         projectileMotion _proj = Instantiate(myProjectile, transform.position + _offset, myCamera.transform.rotation).GetComponent<projectileMotion>();
         _proj.transform.RotateAround(_proj.transform.position, Vector3.up, dirOffset);
         _proj.projectileSpeed = projSpeed;
+        _proj.gameObject.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);
     }
 
     void spawnMelee(Vector3 direction)

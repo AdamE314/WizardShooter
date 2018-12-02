@@ -16,7 +16,7 @@ public class uiText : MonoBehaviour
 
     public float timeTaken;
 
-    public Text hpText;
+    //public Text hpText;
 
     public Text enemiesLeftText;
 
@@ -42,7 +42,7 @@ public class uiText : MonoBehaviour
         wavesLeft = bosshp.myHealth;
         hp = playerhp.myHealth;
        // timeTaken = Time.timeSinceLevelLoad;
-        hpText.text = "Health: " + hp;
+        //hpText.text = "Health: " + hp;
         enemiesLeftText.text = "Enemies Remaining: " + enemiesLeft;
         wavesLeftText.text = "Waves Remaining: " + wavesLeft;
        // timerText.text = "Time: " + timeTaken;
@@ -56,7 +56,7 @@ public class uiText : MonoBehaviour
         enemiesLeft = enemyList.Length;
         hp = playerhp.myHealth;
         wavesLeft = bosshp.myHealth;
-        hpText.text = "Health: " + hp;
+        //hpText.text = "Health: " + hp;
         enemiesLeftText.text = "Enemies Remaining: " + enemiesLeft;
         wavesLeftText.text = "Waves Remaining: " + wavesLeft;
        // timerText.text = "Time: "+ timeTaken;

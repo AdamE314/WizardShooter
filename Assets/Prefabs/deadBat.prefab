@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 23259003105651484}
   - component: {fileID: 135920129641482530}
   - component: {fileID: 54816445844132638}
+  - component: {fileID: 114547955252873124}
   - component: {fileID: 114244844433293584}
   m_Layer: 0
   m_Name: deadBat
@@ -163,13 +164,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 95621787348636886}
+--- !u!114 &114547955252873124
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1696913240872098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc127ee9c8b383448bb2241d8a576b7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114737853304063748
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1410752186456010}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc127ee9c8b383448bb2241d8a576b7f, type: 3}
   m_Name: 

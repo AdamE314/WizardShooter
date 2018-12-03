@@ -19,7 +19,10 @@ public class enemyHealth : MonoBehaviour {
         //Death
         if (myHealth <= 0)
         {
-            Instantiate(deadPrefab,transform.position,transform.rotation);
+            GameObject myPlayer = GameObject.FindGameObjectWithTag("Player");
+            this.transform.localEulerAngles = myPlayer.transform.localEulerAngles+(new Vector3(0f,180f,0f));
+            var myCorpse = Instantiate(deadPrefab,transform.position,transform.rotation);
+            myCorpse.transform.localEulerAngles = myPlayer.transform.localEulerAngles;
             Destroy(gameObject);
         }
 

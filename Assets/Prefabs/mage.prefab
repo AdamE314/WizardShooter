@@ -202,7 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca46b4586853806469a532d2852e040a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deadPrefab: {fileID: 1696913240872098, guid: 30b8f47a3d670b04f99115919be3a8ac, type: 2}
+  deadPrefab: {fileID: 1430572971198076, guid: cb4b8460523a3f14e86b8f393769880f, type: 2}
   myHealth: 5
 --- !u!136 &136618990486416118
 CapsuleCollider:

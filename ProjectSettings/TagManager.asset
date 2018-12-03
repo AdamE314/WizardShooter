@@ -9,6 +9,7 @@ TagManager:
   - Wall
   - Boss
   - Floor
+  - UI
   layers:
   - Default
   - TransparentFX

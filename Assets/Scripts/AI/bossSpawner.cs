@@ -102,7 +102,7 @@ public class bossSpawner : MonoBehaviour {
                 _enms[0, (int) enm.bat] = 5;
                 _enms[0, (int) enm.charger] = 0;
                 _enms[0, (int) enm.mage] = 0;
-                //Round 2
+                /*//Round 2
                 _enms[1, (int)enm.bat] = 8;
                 _enms[1, (int)enm.charger] = 0;
                 _enms[1, (int)enm.mage] = 0;
@@ -137,7 +137,7 @@ public class bossSpawner : MonoBehaviour {
                 //Round 10
                 _enms[9, (int)enm.bat] = 15;
                 _enms[9, (int)enm.charger] = 10;
-                _enms[9, (int)enm.mage] = 10;
+                _enms[9, (int)enm.mage] = 10;*/
                 break;
         }
 

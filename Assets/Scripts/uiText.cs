@@ -16,7 +16,13 @@ public class uiText : MonoBehaviour
 
     public float timeTaken;
 
+    private bool bossIsDead = false;
+
+    private bool postedScore = false;
+
     //public Text hpText;
+
+    public Text winLoseText;
 
     public Text enemiesLeftText;
 
@@ -41,25 +47,37 @@ public class uiText : MonoBehaviour
         bosshp = boss.GetComponent<bossAI>();
         wavesLeft = bosshp.myHealth;
         hp = playerhp.myHealth;
-       // timeTaken = Time.timeSinceLevelLoad;
+        timeTaken = 0f;
         //hpText.text = "Health: " + hp;
         enemiesLeftText.text = "Enemies Remaining: " + enemiesLeft;
         wavesLeftText.text = "Waves Remaining: " + wavesLeft;
-       // timerText.text = "Time: " + timeTaken;
+        timerText.text = "Time: " + timeTaken;
+        winLoseText.text = "";
     }
 
 
     void Update()
     {
-      //  timeTaken = Time.timeSinceLevelLoad;
         enemyList = GameObject.FindGameObjectsWithTag("Enemy");
         enemiesLeft = enemyList.Length;
         hp = playerhp.myHealth;
-        wavesLeft = bosshp.myHealth;
+        wavesLeft = Mathf.Max(bosshp.myHealth,0);
+        if (wavesLeft <= 0) { bossIsDead = true; }
+        if (!bossIsDead) { timeTaken += Time.deltaTime; }
+        else if (!postedScore) { postedScore = true; this.GetComponent<HighscoresDemo>().Insert();  }
         //hpText.text = "Health: " + hp;
         enemiesLeftText.text = "Enemies Remaining: " + enemiesLeft;
         wavesLeftText.text = "Waves Remaining: " + wavesLeft;
-       // timerText.text = "Time: "+ timeTaken;
+        timerText.text = "Time: "+ Mathf.Floor(timeTaken*1000)/1000f;
+        if (hp <= 0)
+        {
+            winLoseText.text = "You Lose!";
+        }
+        if (wavesLeft <= -1)
+        {
+            winLoseText.text = "You Win!";
+            wavesLeftText.text = "Waves Remaining: 0";
+        }
     }
 
 }

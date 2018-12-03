@@ -84,10 +84,11 @@ public class HighscoresDemo : MonoBehaviour, ITableViewDataSource
 		_table = _client.GetTable<Highscore> ("Highscores");
 
 		// set TSTableView delegate
-		//_tableView.dataSource = this;
+		_tableView.dataSource = this;
 
-		//UpdateUI ();
-	}
+        //UpdateUI ();
+        GetAllHighscores();
+    }
 
 	// Update is called once per frame
 	void Update ()
@@ -112,8 +113,7 @@ public class HighscoresDemo : MonoBehaviour, ITableViewDataSource
 			_modalAlert.Show (_message.message, _message.title);
 			_message = null;
 		}
-
-	}
+    }
 
 	public void Login ()
 	{
@@ -239,7 +239,7 @@ public class HighscoresDemo : MonoBehaviour, ITableViewDataSource
 
 	private void GetPageHighscores ()
 	{
-		var orderBy = new OrderBy("score", SortDirection.desc);
+		var orderBy = new OrderBy("score", SortDirection.asc);
 		TableQuery query = new TableQuery ("", _noPageResults, _skip, "id,username,score", TableSystemProperty.nil, false, orderBy);
 		StartCoroutine (_table.Query<Highscore> (query, OnReadNestedResultsCompleted));
 	}
@@ -264,7 +264,7 @@ public class HighscoresDemo : MonoBehaviour, ITableViewDataSource
 		ResetList ();
 		Highscore score = GetScore ();
 		string filterPredicate = string.Format ("username eq '{0}'", score.username);
-		var orderBy = new OrderBy("score", SortDirection.desc);
+		var orderBy = new OrderBy("score", SortDirection.asc);
 		TableQuery query = TableQuery.CreateWithOrderBy(orderBy);
 		query.Filter = filterPredicate;
 		Query (query);

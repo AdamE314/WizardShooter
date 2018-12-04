@@ -387,6 +387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dcdeb5277262475c858002ec725ae70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showScores: 1
   _appUrl: https://wizardshooter.azurewebsites.net
   _facebookUserToken: 
   _twitterAccessToken: 
@@ -812,7 +813,7 @@ Prefab:
     - target: {fileID: 224505536088204072, guid: 176c98468e166ba4d9ea9d3fd8c2b465,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000011822438
+      value: 0.0000065797685
       objectReference: {fileID: 0}
     - target: {fileID: 224220426541802586, guid: 176c98468e166ba4d9ea9d3fd8c2b465,
         type: 2}

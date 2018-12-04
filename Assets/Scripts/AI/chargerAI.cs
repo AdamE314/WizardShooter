@@ -22,6 +22,8 @@ public class chargerAI : MonoBehaviour
     private int layerId;
     private int layerMask;
 
+    public Animator anim;
+
     // Use this for initialization
     void Start()
     {
@@ -46,7 +48,8 @@ public class chargerAI : MonoBehaviour
                 case "default":
                     if (targetNode != null)
                     {
-
+                        anim.SetBool("Crouch", false);
+                        anim.SetBool("Charge", false);
                         var _targpos = targetNode.transform.position;
                         _targpos = new Vector3(_targpos.x, transform.position.y, _targpos.z);
                         var _movepos = (Vector3.Normalize(_targpos - transform.position)) * moveSpeed;
@@ -86,6 +89,7 @@ public class chargerAI : MonoBehaviour
 
                 //Windup for charge
                 case "windup":
+                    anim.SetBool("Crouch",true);
                     myTimer += Time.deltaTime;
                     chargeDirection = myPlayer.transform.position-transform.position;
                     if (myTimer >= windupDelay)
@@ -96,6 +100,7 @@ public class chargerAI : MonoBehaviour
                     break;
 
                 case "charging":
+                    anim.SetBool("Charge", true);
                     //Check for collision with walls
                     layerId = 10;
                     layerMask = 1 << layerId;
@@ -112,6 +117,7 @@ public class chargerAI : MonoBehaviour
                     {
                         myState = "stunned";
                         myTimer = 0f;
+                        anim.SetBool("Crouch", false);
                     }
                     break;
 
@@ -121,6 +127,8 @@ public class chargerAI : MonoBehaviour
                     {
                         myState = "default";
                         setTarget();
+                        anim.SetBool("Crouch", false);
+                        anim.SetBool("Charge", false);
                     }
                     break;
             }

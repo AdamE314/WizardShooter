@@ -71,7 +71,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1328576199291896}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.2, z: 20}
+  m_LocalPosition: {x: 0, y: 3.2, z: -10.72}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children:
   - {fileID: 4041198211269600}
@@ -193,6 +193,7 @@ MonoBehaviour:
   windupDelay: 1
   stunDelay: 1
   chargeSpeed: 20
+  anim: {fileID: 95760923679067146}
 --- !u!114 &114691331982338612
 MonoBehaviour:
   m_ObjectHideFlags: 1

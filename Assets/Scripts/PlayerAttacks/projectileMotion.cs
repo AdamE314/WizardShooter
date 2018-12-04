@@ -7,6 +7,8 @@ public class projectileMotion : MonoBehaviour {
     public float projectileSpeed = 10.0f;
     public float shotTimeMax = 5.0f;
     public bool shotByPlayer = true;
+    private bool setMove = false;
+    private Vector3 moveVec = new Vector3(0f,0f,1f);
 
 	// Use this for initialization
 	void Start () {
@@ -16,8 +18,15 @@ public class projectileMotion : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 
+        if (transform.rotation != Quaternion.identity && !setMove)
+        {
+            moveVec = transform.forward;
+            setMove = true;
+            transform.rotation = Quaternion.identity;
+        }
+
         //Move straight forwards
-        var _move = transform.forward*projectileSpeed*Time.deltaTime;
+        var _move = moveVec*projectileSpeed*Time.deltaTime;
 
         transform.position += _move;
 

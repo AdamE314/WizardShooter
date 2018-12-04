@@ -12,9 +12,11 @@ using System.Linq;
 
 public class HighscoresDemo : MonoBehaviour, ITableViewDataSource
 {
-	/// <remarks>
-	/// Enter your Azure App Service url
-	/// </remarks>
+    /// <remarks>
+    /// Enter your Azure App Service url
+    /// </remarks>
+
+    public bool showScores = false;
 
 	[Header ("Azure App Service")]
 	// Azure Mobile App connection strings
@@ -83,11 +85,14 @@ public class HighscoresDemo : MonoBehaviour, ITableViewDataSource
 		// Get App Service 'Highscores' table
 		_table = _client.GetTable<Highscore> ("Highscores");
 
-		// set TSTableView delegate
-		_tableView.dataSource = this;
+        if (showScores)
+        {
+            // set TSTableView delegate
+            _tableView.dataSource = this;
 
-        //UpdateUI ();
-        GetAllHighscores();
+            //UpdateUI ();
+            GetAllHighscores();
+        }
     }
 
 	// Update is called once per frame

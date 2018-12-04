@@ -73,7 +73,7 @@ public class uiText : MonoBehaviour
         {
             winLoseText.text = "You Lose!";
         }
-        if (wavesLeft <= -1)
+        if (bossIsDead)
         {
             winLoseText.text = "You Win!";
             wavesLeftText.text = "Waves Remaining: 0";

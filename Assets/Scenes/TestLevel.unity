@@ -253,30 +253,79 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114656607742568070, guid: 855a65e60bb170142b24200dcd41be7e,
+    - target: {fileID: 114240874143211630, guid: 855a65e60bb170142b24200dcd41be7e,
         type: 2}
-      propertyPath: swordAnim
+      propertyPath: hearts.Array.data[0]
       value: 
-      objectReference: {fileID: 1840467651}
-    - target: {fileID: 20889267949363292, guid: 855a65e60bb170142b24200dcd41be7e,
+      objectReference: {fileID: 1674220514}
+    - target: {fileID: 114240874143211630, guid: 855a65e60bb170142b24200dcd41be7e,
         type: 2}
-      propertyPath: m_ClearFlags
-      value: 2
+      propertyPath: hearts.Array.data[1]
+      value: 
+      objectReference: {fileID: 398975771}
+    - target: {fileID: 114240874143211630, guid: 855a65e60bb170142b24200dcd41be7e,
+        type: 2}
+      propertyPath: hearts.Array.data[2]
+      value: 
+      objectReference: {fileID: 124379137}
+    - target: {fileID: 114240874143211630, guid: 855a65e60bb170142b24200dcd41be7e,
+        type: 2}
+      propertyPath: hearts.Array.data[3]
+      value: 
+      objectReference: {fileID: 1565788146}
+    - target: {fileID: 114240874143211630, guid: 855a65e60bb170142b24200dcd41be7e,
+        type: 2}
+      propertyPath: hearts.Array.data[4]
+      value: 
+      objectReference: {fileID: 495044827}
+    - target: {fileID: 114240874143211630, guid: 855a65e60bb170142b24200dcd41be7e,
+        type: 2}
+      propertyPath: hearts.Array.data[5]
+      value: 
+      objectReference: {fileID: 1114266267}
+    - target: {fileID: 4555847632090636, guid: 855a65e60bb170142b24200dcd41be7e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.573
       objectReference: {fileID: 0}
-    - target: {fileID: 20889267949363292, guid: 855a65e60bb170142b24200dcd41be7e,
-        type: 2}
-      propertyPath: m_BackGroundColor.r
-      value: 0
+    - target: {fileID: 4555847632090636, guid: 855a65e60bb170142b24200dcd41be7e, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.5595
       objectReference: {fileID: 0}
-    - target: {fileID: 20889267949363292, guid: 855a65e60bb170142b24200dcd41be7e,
-        type: 2}
-      propertyPath: m_BackGroundColor.g
-      value: 0
+    - target: {fileID: 4555847632090636, guid: 855a65e60bb170142b24200dcd41be7e, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.5595
       objectReference: {fileID: 0}
-    - target: {fileID: 20889267949363292, guid: 855a65e60bb170142b24200dcd41be7e,
-        type: 2}
-      propertyPath: m_BackGroundColor.b
-      value: 0
+    - target: {fileID: 4555847632090636, guid: 855a65e60bb170142b24200dcd41be7e, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.5595
+      objectReference: {fileID: 0}
+    - target: {fileID: 4555847632090636, guid: 855a65e60bb170142b24200dcd41be7e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -1.272
+      objectReference: {fileID: 0}
+    - target: {fileID: 4555847632090636, guid: 855a65e60bb170142b24200dcd41be7e, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4555847632090636, guid: 855a65e60bb170142b24200dcd41be7e, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4555847632090636, guid: 855a65e60bb170142b24200dcd41be7e, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0.110263266
+      objectReference: {fileID: 0}
+    - target: {fileID: 4555847632090636, guid: 855a65e60bb170142b24200dcd41be7e, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.99390244
+      objectReference: {fileID: 0}
+    - target: {fileID: 4555847632090636, guid: 855a65e60bb170142b24200dcd41be7e, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 1.7099991
+      objectReference: {fileID: 0}
+    - target: {fileID: 4555847632090636, guid: 855a65e60bb170142b24200dcd41be7e, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -12.661
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 855a65e60bb170142b24200dcd41be7e, type: 2}
@@ -2685,11 +2734,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!4 &1364833500 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4935777513625716, guid: 855a65e60bb170142b24200dcd41be7e,
-    type: 2}
-  m_PrefabInternal: {fileID: 51148074}
 --- !u!1 &1452586715
 GameObject:
   m_ObjectHideFlags: 0
@@ -3232,6 +3276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dcdeb5277262475c858002ec725ae70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showScores: 0
   _appUrl: https://wizardshooter.azurewebsites.net
   _facebookUserToken: 
   _twitterAccessToken: 
@@ -3340,124 +3385,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!1 &1840467649
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1840467650}
-  - component: {fileID: 1840467652}
-  - component: {fileID: 1840467651}
-  m_Layer: 0
-  m_Name: swordSprite
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1840467650
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1840467649}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: -0.17, z: 1.71}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1364833500}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1840467651
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1840467649}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ca074ef19e53de142b6494e9e109edbc, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!212 &1840467652
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1840467649}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 062120e45410fee4fb18bdd4ba5718ea, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 0.58, y: 2.19}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!1 &1967916818 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1528873319729286, guid: 855a65e60bb170142b24200dcd41be7e,
-    type: 2}
-  m_PrefabInternal: {fileID: 51148074}
---- !u!114 &1967916825
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1967916818}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2f520ab2850e8d4cadac2e9b32b4a98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hearts:
-  - {fileID: 1674220514}
-  - {fileID: 398975771}
-  - {fileID: 124379137}
-  - {fileID: 1565788146}
-  - {fileID: 495044827}
-  - {fileID: 1114266267}
-  displayedHeart: {fileID: 21300000, guid: 4757f428cf90b8342b49cd62801fe573, type: 3}
 --- !u!1 &2000731512
 GameObject:
   m_ObjectHideFlags: 0

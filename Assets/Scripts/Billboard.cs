@@ -15,7 +15,7 @@ public class Billboard : MonoBehaviour
     void Update()
     {
         //transform.LookAt(myCamera.transform.position, -Vector3.up);
-        transform.localEulerAngles = myPlayer.transform.localEulerAngles;
+        transform.localEulerAngles = myPlayer.transform.eulerAngles;
     }
 }
 

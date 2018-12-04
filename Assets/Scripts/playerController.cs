@@ -28,6 +28,7 @@ public class playerController : MonoBehaviour {
     //Animation
     //public Canvas myCanvas;
     public Animator swordAnim;
+    public GameObject staffSprite;
 
     //Pre-initialization
     void Awake() {
@@ -37,8 +38,9 @@ public class playerController : MonoBehaviour {
     // Use this for initialization
     void Start () {
         swordAnim.transform.SetParent(myCamera.transform);
+        staffSprite.transform.SetParent(myCamera.transform);
         //swordAnim.SetBool("Attacking", true);
-	}
+    }
 
     void Update()
     {
@@ -55,7 +57,7 @@ public class playerController : MonoBehaviour {
         if (myMeleeTimer >= myMeleeCooldown && shotTimer <= 0 && Input.GetButton("Fire1"))
         {
             shotTimer = shotCooldown;
-            spawnBullet(myCamera.transform.forward, 0.0f);
+            spawnBullet(myCamera.transform.forward-0.5f*myCamera.transform.right, 0.0f);
         }
 
         myMeleeTimer += Time.deltaTime;
@@ -90,7 +92,7 @@ public class playerController : MonoBehaviour {
     //Spawning bullets when firing
     void spawnBullet(Vector3 direction, float dirOffset)
     {
-        Vector3 _offset = new Vector3(0f, 1f, 0f) + direction * 2f;
+        Vector3 _offset = new Vector3(0f, 1f, 0f) + direction * 3f;
         projectileMotion _proj = Instantiate(myProjectile, transform.position + _offset, myCamera.transform.rotation).GetComponent<projectileMotion>();
         _proj.transform.RotateAround(_proj.transform.position, Vector3.up, dirOffset);
         _proj.projectileSpeed = projSpeed;

@@ -268,7 +268,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 95514079343450568}
   myState: vulnerable
-  myHealth: 10
+  myHealth: 2
   myProjectile: {fileID: 1863869917732224, guid: 549277f06e0208b42b58c8f88b0ff6a4,
     type: 2}
   burstDelay: 5
@@ -294,6 +294,7 @@ MonoBehaviour:
   bat: {fileID: 1206202354176192, guid: 60d32a5a81678344883df2fb7ea22214, type: 2}
   charger: {fileID: 1328576199291896, guid: 22771508d6084fe40b6b7e8df49c4e98, type: 2}
   mage: {fileID: 1644199205706850, guid: 7272be73c83f74c44b8fb6f9a89ef73d, type: 2}
+  spawnAnim: {fileID: 1325985962696934, guid: 446da5fdd42b8fa42a800fc414467c44, type: 2}
   arenaRadius: 45
   arenaCenter: {x: 0, y: 3.2, z: 0}
 --- !u!114 &114857743919624666

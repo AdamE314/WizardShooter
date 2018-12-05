@@ -6,9 +6,18 @@ using UnityEngine.UI;
 
 public class mainMenu : MonoBehaviour
 {
+    // Index 0 - Main Menu    Index 1 - Controls Menu     Index 2 - Game
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(2);
+    }
+    public void OpenControlMenu()
+    {
+        SceneManager.LoadScene(1);
+    }
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
     public void QuitGame()
     {

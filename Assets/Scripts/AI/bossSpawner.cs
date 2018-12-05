@@ -24,6 +24,7 @@ public class bossSpawner : MonoBehaviour {
     public GameObject bat;
     public GameObject charger;
     public GameObject mage;
+    public GameObject spawnAnim;
     GameObject[] enmTypes;
     public float arenaRadius;
     public Vector3 arenaCenter;
@@ -74,6 +75,7 @@ public class bossSpawner : MonoBehaviour {
 
 
                             Instantiate(_enm, enmSpawn, Quaternion.identity);
+                            Instantiate(spawnAnim, enmSpawn, Quaternion.identity);
                         }
                     }
                     waveNum++;

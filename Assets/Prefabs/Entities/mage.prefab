@@ -203,7 +203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deadPrefab: {fileID: 1430572971198076, guid: cb4b8460523a3f14e86b8f393769880f, type: 2}
-  myHealth: 5
+  myHealth: 3
 --- !u!136 &136618990486416118
 CapsuleCollider:
   m_ObjectHideFlags: 1

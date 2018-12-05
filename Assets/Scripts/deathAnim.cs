@@ -17,7 +17,7 @@ public class deathAnim : MonoBehaviour {
         Timer -= Time.deltaTime;
         if (Timer <= 0)
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
 	}
 }

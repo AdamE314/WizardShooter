@@ -26,7 +26,7 @@ public class mageAI : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         myPlayer = GameObject.FindGameObjectWithTag("Player");
-
+        atkTimer = Random.Range(3f,atkCooldown+3f);
 	}
 
     // Update is called once per frame

@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class uiText : MonoBehaviour
 {
 
+    public GameObject nameField;
+    public GameObject nameButton;
 
     public int hp;
 
@@ -53,6 +55,8 @@ public class uiText : MonoBehaviour
         wavesLeftText.text = "Waves Remaining: " + wavesLeft;
         timerText.text = "Time: " + timeTaken;
         winLoseText.text = "";
+        nameField.SetActive(false);
+        nameButton.SetActive(false);
     }
 
 
@@ -64,7 +68,7 @@ public class uiText : MonoBehaviour
         wavesLeft = Mathf.Max(bosshp.myHealth,0);
         if (wavesLeft <= 0) { bossIsDead = true; }
         if (!bossIsDead) { timeTaken += Time.deltaTime; }
-        else if (!postedScore) { postedScore = true; this.GetComponent<HighscoresDemo>().Insert();  }
+        //else if (!postedScore) { postedScore = true; this.GetComponent<HighscoresDemo>().Insert();  }
         //hpText.text = "Health: " + hp;
         enemiesLeftText.text = "Enemies Remaining: " + enemiesLeft;
         wavesLeftText.text = "Waves Remaining: " + wavesLeft;
@@ -75,8 +79,11 @@ public class uiText : MonoBehaviour
         }
         if (bossIsDead)
         {
+            Cursor.lockState = CursorLockMode.None;
             winLoseText.text = "You Win!";
             wavesLeftText.text = "Waves Remaining: 0";
+            nameField.SetActive(true);
+            nameButton.SetActive(true);
         }
     }
 

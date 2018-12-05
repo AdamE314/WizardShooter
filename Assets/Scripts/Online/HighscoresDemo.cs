@@ -17,6 +17,7 @@ public class HighscoresDemo : MonoBehaviour, ITableViewDataSource
     /// </remarks>
 
     public bool showScores = false;
+    public InputField myName;
 
 	[Header ("Azure App Service")]
 	// Azure Mobile App connection strings
@@ -360,7 +361,8 @@ public class HighscoresDemo : MonoBehaviour, ITableViewDataSource
 		}*/
         float myTime = this.GetComponent<uiText>().timeTaken;
         Highscore highscore = new Highscore();
-        highscore.username = "Jimbo";
+        if (myName.text == "" || myName.text == "Enter Name...") { myName.text = "Guest"; }
+        highscore.username = myName.text;
         highscore.score = myTime;
         return highscore;
 	}
